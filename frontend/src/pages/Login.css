@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+.login-page {
+  --navy: #2a3f87;
+  --navy-dark: #1f2a3d;
+  --accent: #1e88e5;
+  --accent-dark: #1669b8;
+  --ink: #1b2233;
+  --muted: #5d667a;
+  --line: #cfd5e3;
+  --error-bg: #fdecec;
+  --error-ink: #a12323;
+
+  display: grid;
+  grid-template-columns: minmax(320px, 5fr) 6fr;
+  min-height: 100vh;
+  font-family: "IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--ink);
+}
+
+/* Left: brand panel, same navy as the app header */
+.login-brand {
+  background: var(--navy);
+  color: #fff;
+  padding: 72px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.login-brand h1 {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.login-brand-lead {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #d5dcf3;
+}
+
+.login-brand-list {
+  margin: 16px 0 0;
+  padding: 20px 0 0 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  max-width: 42ch;
+  line-height: 1.6;
+  color: #e6ebfa;
+}
+
+.login-brand-list li + li {
+  margin-top: 8px;
+}
+
+/* Right: form */
+.login-panel {
+  background: #f4f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 380px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 36px 32px 28px;
+}
+
+.login-form h2 {
+  margin: 0 0 6px;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.login-sub {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.login-form label {
+  display: block;
+  margin: 16px 0 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.login-form input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 42px;
+  padding: 0 12px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.login-form input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+.login-form input:disabled {
+  background: #f0f2f7;
+}
+
+.login-password {
+  position: relative;
+}
+
+.login-password input {
+  padding-right: 64px;
+}
+
+.login-toggle {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--accent-dark);
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-toggle:hover {
+  background: #eaf2fb;
+}
+
+.login-toggle:focus-visible,
+.login-submit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.login-submit {
+  width: 100%;
+  height: 44px;
+  margin-top: 24px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-submit:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.login-submit:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.login-error {
+  margin-bottom: 4px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--error-ink);
+  background: var(--error-bg);
+  border-left: 3px solid var(--error-ink);
+  border-radius: 4px;
+}
+
+.login-help {
+  margin: 18px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Phones and narrow windows: stack, keep the brand as a slim header */
+@media (max-width: 800px) {
+  .login-page {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .login-brand {
+    padding: 28px 24px;
+    gap: 8px;
+  }
+
+  .login-brand h1 {
+    font-size: 1.5rem;
+  }
+
+  .login-brand-lead {
+    font-size: 0.95rem;
+  }
+
+  .login-brand-list {
+    display: none;
+  }
+
+  .login-panel {
+    align-items: flex-start;
+    padding: 28px 16px;
+  }
+
+  .login-form {
+    padding: 28px 20px 22px;
+  }
+}

@@ -1,0 +1,235 @@
+/* Everything is scoped under .assets-page so it will not change other pages */
+.assets-page {
+  --navy: #2a3f87;
+  --accent: #1e88e5;
+  --accent-dark: #1669b8;
+  --ink: #1b2233;
+  --muted: #5d667a;
+  --line: #d9deea;
+  --row-hover: #f3f6fc;
+
+  max-width: 1000px;
+  color: var(--ink);
+}
+
+.assets-page h2 {
+  margin: 0 0 16px;
+  font-size: 1.6rem;
+}
+
+/* Inputs and selects */
+.assets-page input,
+.assets-page select {
+  height: 38px;
+  padding: 0 12px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.assets-page input:focus,
+.assets-page select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+/* Search row */
+.assets-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.assets-toolbar input[type="search"] {
+  flex: 1 1 240px;
+  max-width: 340px;
+}
+
+.assets-count {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Add / edit form */
+.assets-form {
+  margin-bottom: 20px;
+  padding: 16px 18px 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.assets-form h3 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.assets-form-fields {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+  gap: 10px;
+}
+
+/* Buttons */
+.assets-page button {
+  height: 38px;
+  padding: 0 16px;
+  font: inherit;
+  font-weight: 500;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.assets-page button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.assets-page button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.assets-page .btn-primary {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.assets-page .btn-primary:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+/* Table */
+.assets-table-wrap {
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.assets-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.assets-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--navy);
+  background: #eef1fa;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.assets-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #edf0f6;
+}
+
+.assets-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.assets-table tbody tr:hover {
+  background: var(--row-hover);
+}
+
+.assets-empty {
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Status badges */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge.available { color: #17673b; background: #e3f5ea; }
+.badge.assigned  { color: #1a4fa0; background: #e4eefc; }
+.badge.in-repair { color: #8a5a00; background: #fff1d6; }
+
+/* Row action buttons */
+.assets-actions {
+  white-space: nowrap;
+}
+
+.assets-page .assets-actions button {
+  height: 30px;
+  padding: 0 12px;
+  font-size: 0.85rem;
+}
+
+.assets-page .assets-actions button + button {
+  margin-left: 6px;
+}
+
+.assets-page .btn-edit {
+  color: var(--accent-dark);
+  border-color: #b8d4f0;
+}
+
+.assets-page .btn-edit:hover {
+  background: #eaf2fb;
+}
+
+.assets-page .btn-delete {
+  color: #b3261e;
+  border-color: #efc4c1;
+}
+
+.assets-page .btn-delete:hover {
+  background: #fdecea;
+}
+
+/* Pagination */
+.assets-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 14px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.assets-page .assets-pagination button:hover:not(:disabled) {
+  background: #eef1fa;
+}
+
+/* Smaller screens */
+@media (max-width: 900px) {
+  .assets-form-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .assets-form-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .assets-count {
+    margin-left: 0;
+    width: 100%;
+  }
+}
